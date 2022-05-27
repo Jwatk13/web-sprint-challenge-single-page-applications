@@ -1,6 +1,6 @@
 import React from 'react';
 
-const pizza = (props) => {
+const Pizza = (props) => {
 
     const { change, submit, errors } = props;
     const { name, size, topping1, topping2, special } = props.values;
@@ -16,9 +16,17 @@ const pizza = (props) => {
 
     return (
         <form id="pizza-form" onSubmit={onSubmit}>
-
+            <label>Name:
+                <input
+                    id="name-input"
+                    type="text"
+                    name="name"
+                    value={name}
+                    onChange={onChange}
+                />
+            </label>
         </form>
     )
 }
 
-export default pizza;
+export default Pizza;
