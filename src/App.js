@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { Link, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
+import * as yup from 'yup';
 
 import Home from './Home';
 import Pizza from './pizza';
+import pizzaSchema from './pizzaSchema';
 
 const initialFormValues = {
-  name: '',
+  yourName: '',
   size: '',
-  topping1: false,
-  topping2: false,
+  topping1: '',
+  topping2: '',
   special: ''
 }
 
 const initialFormErrors = {
-  name: '',
+  yourName: '',
   size: '',
   topping1: '',
   topping2: '',
@@ -26,14 +28,30 @@ const App = () => {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
 
+  const [orders, setOrders] = useState([]);
+
+  const validate = (name, value) => {
+    yup.reach(pizzaSchema, name)
+      .validate(value)
+      .then(() => {
+        setFormErrors({ ...formErrors, [name]: '' })
+      })
+      .catch(err => {
+        setFormErrors({ ...formErrors, [name]: err.errors[0] })
+      })
+  }
+
   const handleChange = (name, value) => {
+    validate(name, value);
     setFormValues({ ...formValues, [name]: value })
+    
   }
 
   const handleSubmit = () => {
     axios.post('https://reqres.in/api/orders', formValues)
       .then(res => {
-        console.log(res);
+        console.log(res.data);
+        setOrders([ res.data, ...orders ])
       })
       .catch(err => console.error(err))
   }

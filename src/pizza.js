@@ -27,12 +27,13 @@ const Pizza = (props) => {
                     onChange={onChange}
                 />
             </label>
+            {/* ////////// DROPDOWN MENU ////////// */}
             <label>Size:
                 <select
-                    id="size-dropdown" 
-                    onChange={onChange}
-                    value={size}
+                    id="size-dropdown"
                     name="size"
+                    value={size} 
+                    onChange={onChange} 
                 >
                     <option value=''>- Select A Size -</option>
                     <option value='small'>Small</option>
@@ -49,7 +50,7 @@ const Pizza = (props) => {
                         <li>
                            <label>Original Red
                            <input
-                                name='sauce'
+                                name='topping1'
                                 type='radio'
                                 value={topping1}
                                 onChange={onChange}
@@ -59,7 +60,7 @@ const Pizza = (props) => {
                         <li>
                             <label>Garlic Ranch
                             <input 
-                                name='sauce'
+                                name='topping1'
                                 type='radio'
                                 value={topping1}
                                 onChange={onChange}
@@ -69,7 +70,7 @@ const Pizza = (props) => {
                         <li>
                             <label>BBQ Sauce
                             <input 
-                                name='sauce'
+                                name='topping1'
                                 type='radio'
                                 value={topping1}
                                 onChange={onChange}
@@ -79,7 +80,7 @@ const Pizza = (props) => {
                         <li>
                             <label>Spinach Alfredo
                             <input 
-                                name='sauce'
+                                name='topping1'
                                 type='radio'
                                 value={topping1}
                                 onChange={onChange}
@@ -93,7 +94,7 @@ const Pizza = (props) => {
                     <h3>Add Toppings</h3>
                     <label>Pepperoni
                         <input
-                            name='pepperoni'
+                            name='topping2'
                             type='checkbox'
                             value={topping2}
                             onChange={onChange}
@@ -101,7 +102,7 @@ const Pizza = (props) => {
                     </label>
                     <label>Sausage
                         <input
-                            name='sausage'
+                            name='topping2'
                             type='checkbox'
                             value={topping2}
                             onChange={onChange}
@@ -109,7 +110,7 @@ const Pizza = (props) => {
                     </label>
                     <label>Canadian Bacon
                         <input
-                            name='canadian-bacon'
+                            name='topping2'
                             type='checkbox'
                             value={topping2}
                             onChange={onChange}
@@ -117,7 +118,7 @@ const Pizza = (props) => {
                     </label>
                     <label>Spicy Italian Sausage
                         <input
-                            name='spicy-italian-sausage'
+                            name='topping2'
                             type='checkbox'
                             value={topping2}
                             onChange={onChange}
@@ -125,7 +126,7 @@ const Pizza = (props) => {
                     </label>
                     <label>Grilled chicken
                         <input
-                            name='grilled-chicken'
+                            name='topping2'
                             type='checkbox'
                             value={topping2}
                             onChange={onChange}
@@ -133,7 +134,7 @@ const Pizza = (props) => {
                     </label>
                     <label>Onions
                         <input
-                            name='onions'
+                            name='topping2'
                             type='checkbox'
                             value={topping2}
                             onChange={onChange}
@@ -141,7 +142,7 @@ const Pizza = (props) => {
                     </label>
                     <label>Green Pepper
                         <input
-                            name='green-pepper'
+                            name='topping2'
                             type='checkbox'
                             value={topping2}
                             onChange={onChange}
@@ -149,7 +150,7 @@ const Pizza = (props) => {
                     </label>
                     <label>Black Olives
                         <input
-                            name='black-olives'
+                            name='topping2'
                             type='checkbox'
                             value={topping2}
                             onChange={onChange}
@@ -157,23 +158,23 @@ const Pizza = (props) => {
                     </label>
                     <label>Roasted Garlic
                         <input
-                            name='roasted-garlic'
+                            name='topping2'
                             type='checkbox'
-                            value={topping2}
+                            checked={topping2}
                             onChange={onChange}
                         />
                     </label>
                     <label>Three Cheese
                         <input
-                            name='three-cheese'
+                            name='topping2'
                             type='checkbox'
-                            value={topping2}
+                            checked={topping2}
                             onChange={onChange}
                         />
                     </label>
                     <label>Pineapple
                         <input
-                            name='pineapple'
+                            name='topping2'
                             type='checkbox'
                             value={topping2}
                             onChange={onChange}
@@ -181,13 +182,14 @@ const Pizza = (props) => {
                     </label>
                     <label>Extra Cheese
                         <input
-                            name='extra-cheese'
+                            name='topping2'
                             type='checkbox'
                             value={topping2}
                             onChange={onChange}
                         />
                     </label>
                 </div>
+                {/* ////////// INPUT BOX ////////// */}
                 <label>Special Instructions
                     <input
                         id="special-text" 
@@ -198,6 +200,8 @@ const Pizza = (props) => {
                         onChange={onChange}
                     />
                 </label>
+                <p>{errors.name}</p>
+                <input id='order-button' type="submit" value="Submit your order now!" />
         </form>
     )
 }
