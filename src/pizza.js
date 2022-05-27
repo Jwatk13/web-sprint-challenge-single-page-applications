@@ -7,7 +7,7 @@ const Pizza = (props) => {
 
     const onChange = (evt) => {
         const { name, value, checked, type } = evt.target
-        const valueToUse = type === 'radio' ? !checked : value;
+        const valueToUse = type === 'checkbox' ? checked : value;
         change(name, valueToUse);
     }
 
@@ -41,10 +41,9 @@ const Pizza = (props) => {
                     <option value='x-large'>X-Large</option>
                 </select>
             </label>
-            
+            {/* ////////// RADIO BUTTONS ////////// */}
                 <div className='sauces'>
                     <h3>Choice of Sauce</h3>
-                    <label>Topping no. 1
                     <ul>
                     
                         <li>
@@ -52,7 +51,7 @@ const Pizza = (props) => {
                            <input
                                 name='sauce'
                                 type='radio'
-                                value='Original Red'
+                                value={topping1}
                                 onChange={onChange}
                             />
                             </label>
@@ -62,7 +61,7 @@ const Pizza = (props) => {
                             <input 
                                 name='sauce'
                                 type='radio'
-                                value='garlic-ranch'
+                                value={topping1}
                                 onChange={onChange}
                             />
                             </label>
@@ -72,7 +71,7 @@ const Pizza = (props) => {
                             <input 
                                 name='sauce'
                                 type='radio'
-                                value='bbq-sauce'
+                                value={topping1}
                                 onChange={onChange}
                             />
                             </label>
@@ -82,16 +81,123 @@ const Pizza = (props) => {
                             <input 
                                 name='sauce'
                                 type='radio'
-                                value='spinach-alfredo'
+                                value={topping1}
                                 onChange={onChange}
                             />
                             </label>
                         </li>         
                     </ul>
+                </div>
+                {/* ////////// CHECKBOXES ////////// */}
+                <div className='toppings'>
+                    <h3>Add Toppings</h3>
+                    <label>Pepperoni
+                        <input
+                            name='pepperoni'
+                            type='checkbox'
+                            value={topping2}
+                            onChange={onChange}
+                        />
+                    </label>
+                    <label>Sausage
+                        <input
+                            name='sausage'
+                            type='checkbox'
+                            value={topping2}
+                            onChange={onChange}
+                        />
+                    </label>
+                    <label>Canadian Bacon
+                        <input
+                            name='canadian-bacon'
+                            type='checkbox'
+                            value={topping2}
+                            onChange={onChange}
+                        />
+                    </label>
+                    <label>Spicy Italian Sausage
+                        <input
+                            name='spicy-italian-sausage'
+                            type='checkbox'
+                            value={topping2}
+                            onChange={onChange}
+                        />
+                    </label>
+                    <label>Grilled chicken
+                        <input
+                            name='grilled-chicken'
+                            type='checkbox'
+                            value={topping2}
+                            onChange={onChange}
+                        />
+                    </label>
+                    <label>Onions
+                        <input
+                            name='onions'
+                            type='checkbox'
+                            value={topping2}
+                            onChange={onChange}
+                        />
+                    </label>
+                    <label>Green Pepper
+                        <input
+                            name='green-pepper'
+                            type='checkbox'
+                            value={topping2}
+                            onChange={onChange}
+                        />
+                    </label>
+                    <label>Black Olives
+                        <input
+                            name='black-olives'
+                            type='checkbox'
+                            value={topping2}
+                            onChange={onChange}
+                        />
+                    </label>
+                    <label>Roasted Garlic
+                        <input
+                            name='roasted-garlic'
+                            type='checkbox'
+                            value={topping2}
+                            onChange={onChange}
+                        />
+                    </label>
+                    <label>Three Cheese
+                        <input
+                            name='three-cheese'
+                            type='checkbox'
+                            value={topping2}
+                            onChange={onChange}
+                        />
+                    </label>
+                    <label>Pineapple
+                        <input
+                            name='pineapple'
+                            type='checkbox'
+                            value={topping2}
+                            onChange={onChange}
+                        />
+                    </label>
+                    <label>Extra Cheese
+                        <input
+                            name='extra-cheese'
+                            type='checkbox'
+                            value={topping2}
+                            onChange={onChange}
+                        />
                     </label>
                 </div>
-                
-            
+                <label>Special Instructions
+                    <input
+                        id="special-text" 
+                        name="special"
+                        placeholder='Anything else you would like to add?'
+                        type='text'
+                        value={special}
+                        onChange={onChange}
+                    />
+                </label>
         </form>
     )
 }
